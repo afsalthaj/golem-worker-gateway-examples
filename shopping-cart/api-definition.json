@@ -1,0 +1,20 @@
+{
+  "id": "my-shopping-cart-v1",
+  "draft": true,
+  "version": "0.0.6",
+  "routes": [
+    {
+      "method": "Get",
+      "path": "/v6/{user-id}/get-cart-contents",
+      "binding": {
+        "type": "wit-worker",
+        "componentId": {
+          "componentId": "dba38841-013a-49fa-a1dc-064949832f0c",
+          "version": 0
+        },
+        "workerName": "let user: u64 = request.path.user-id; \"my-worker-${user}\"",
+        "response": "let result = golem:it/api.{get-cart-contents}(); {status: 200u64, body: result}"
+      }
+    }
+  ]
+}
