@@ -2,10 +2,30 @@ id: html-example
 draft: true
 version: "0.0.1"
 routes:
+  - method: Options
+    path: /v1/{user-id}/hello
+    binding:
+      bindingType: cors-preflight
+  - method: Get
+    path: /v1/{user-id}/hello
+    binding:
+      bindingType: default
+      componentId:
+        componentId: 3c448def-c38b-4c4f-8033-9d4671486794
+        version: 0
+      response: |
+       let user: string = request.path.user-id;
+       {
+         headers: {
+           Content-Type: "application/json"
+         },
+         status: 200u64,
+         body: "Hello, ${user}!"
+       }
   - method: Post
     path: /v1/{user-id}/add-item
     binding:
-       type: wit-worker
+       bindingType: default
        componentId:
          componentId: 3c448def-c38b-4c4f-8033-9d4671486794
          version: 0

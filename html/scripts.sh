@@ -16,7 +16,7 @@ http://localhost:9006/v37/1/get-cart-contents
 # i.e, same example
 
 # CORS
-# enabling cors
+curl -X GET http://localhost:9006/v1/afsal/hello -v
 
 # Component Constraints Demo
 ~/projects/resolve/golem/target/debug/golem-cli component update --component-name afsal test-components/auction.wasm
