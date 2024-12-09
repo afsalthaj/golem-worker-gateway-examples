@@ -16,7 +16,7 @@ http://localhost:9006/v37/1/get-cart-contents
 # i.e, same example
 
 # CORS
-curl -X OPTIONS http://localhost:9006/v1/afsal/hello -H "Origin: http://abc.com"  -H "Access-Control-Request-Method: GET" -v
+curl -X OPTIONS http://localhost:9006/v1/afsal/hello  -H "Access-Control-Request-Method: GET" -v
 curl -X GET http://localhost:9006/v1/afsal/hello -v
 
 fetch('http://localhost:9006/v1/afsal/hello', {
