@@ -1,9 +1,9 @@
 id: html-example
 draft: true
-version: "0.0.37"
+version: "0.0.1"
 routes:
   - method: Post
-    path: /v37/{user-id}/add-item
+    path: /v1/{user-id}/add-item
     binding:
        type: wit-worker
        componentId:
@@ -22,8 +22,8 @@ routes:
             body: "Item added to cart successfully"
          }
   - method: Get
-    path: /v37/{user-id}/get-cart-contents
-    security: afsalthaj28
+    path: /v1/{user-id}/get-cart-contents
+    security: shopping-cart-security-scheme
     binding:
       type: wit-worker
       componentId:
