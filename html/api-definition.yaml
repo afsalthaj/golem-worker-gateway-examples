@@ -6,6 +6,13 @@ routes:
     path: /v1/{user-id}/hello
     binding:
       bindingType: cors-preflight
+      response: |
+        {
+          Access-Control-Allow-Origin: "abc.com",
+          Access-Control-Allow-Methods: "GET, POST, PUT, DELETE, OPTIONS",
+          Access-Control-Allow-Headers: "Content-Type, Authorization",
+          Access-Control-Max-Age: "86400"
+        }
   - method: Get
     path: /v1/{user-id}/hello
     binding:

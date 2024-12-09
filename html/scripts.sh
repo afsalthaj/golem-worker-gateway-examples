@@ -16,8 +16,20 @@ http://localhost:9006/v37/1/get-cart-contents
 # i.e, same example
 
 # CORS
+curl -X OPTIONS http://localhost:9006/v1/afsal/hello -H "Origin: http://abc.com"  -H "Access-Control-Request-Method: GET" -v
 curl -X GET http://localhost:9006/v1/afsal/hello -v
+
+fetch('http://localhost:9006/v1/afsal/hello', {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+})
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
 
 # Component Constraints Demo
 ~/projects/resolve/golem/target/debug/golem-cli component update --component-name afsal test-components/auction.wasm
+
 
