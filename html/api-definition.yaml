@@ -10,8 +10,7 @@ routes:
          componentId: 3c448def-c38b-4c4f-8033-9d4671486794
          version: 0
        workerName: |
-          let user: u64 = request.path.user-id;
-          "my-worker-${user}"
+          "my-worker-Afsal"
        response: |
          let user: u64 = request.path.user-id; 
          golem:it/api.{add-item}(request.body);
@@ -31,7 +30,7 @@ routes:
         componentId: 3c448def-c38b-4c4f-8033-9d4671486794
         version: 0
       workerName: |
-        let user: u64 = request.path.user-id;
+        let user: string = request.auth.given_name;
         "my-worker-${user}"
       response: |
         let style = "font-family: Arial, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; background: linear-gradient(135deg, #1e3c72, #2a5298); color: #ffffff; text-align: center; padding: 20px;"; 
@@ -39,6 +38,7 @@ routes:
         let user: u64 = request.path.user-id; 
         let email: string = request.auth.email;
         let name: string = request.auth.name;
+        let given_name: string = request.auth.given_name;
         let picture: string = request.auth.picture;
         let content = "text/html";
         let status: u64 = 200;
@@ -64,6 +64,7 @@ routes:
                 <p style='font-size: 1.5em;'>Hello ${name}!!</p>
                 <p> UserId: ${user}</p>
                 <p> Email: ${email}</p>
+                <p> Given Name: ${given_name}</p>
                 <img src='${picture}' alt='profile-picture' style='border-radius: 50%; width: 100px; height: 100px;'>
                 <h2>Items in your cart:</h2>
                 ${concatenated}
