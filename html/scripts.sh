@@ -6,11 +6,15 @@ curl -X POST -H "Content-Type: application/json" -d @/Users/afsalthaj/projects/r
 http://localhost:9006/v37/1/get-cart-contents
 
 
-# Security Scheme addition
-./target/debug/golem-cli api-security-scheme create --scheme.id shopping-cart-security-scheme --provider.type google --client.id $GOOGLE_CLIENT_ID --client.secret $GOOGLE_CLIENT_SECRET --redirect.url http://localhost:9006/auth/callback --scopes openid,email,profile
 
 # Get the used component
 ~/projects/resolve/golem/target/debug/golem-cli component get --component-name afsal
+
+# Security Scheme addition and worker authentication
+./target/debug/golem-cli api-security-scheme create --scheme.id shopping-cart-security-scheme --provider.type google --client.id $GOOGLE_CLIENT_ID --client.secret $GOOGLE_CLIENT_SECRET --redirect.url http://localhost:9006/auth/callback --scopes openid,email,profile
+
+# Request response documentation inference
+curl -X GET http://localhost:9005/v1/api/definitions/html-example/0.0.1 | jq
 
 # For Loop and Loop Reduction
 # i.e, same example
